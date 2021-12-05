@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<meta charset="utf-8">
+	<title>Cisco's Binary Number Game [Binary Blitz]. Penjee's adaptation. </title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Cisco's Binary Number game has been brought back with our adaptation. Learn how to convert binary to decimal and vice versa with this fast-paced 'Easy to learn, hard to master' game about binary numbers">
+
+	<link rel="stylesheet" href="Binary%20Game_fichiers/reset.css">
+	<link rel="stylesheet" href="Binary%20Game_fichiers/style.css">
+		
+	<link rel="apple-touch-icon" sizes="57x57" href="https://games.penjee.com/binary-numbers-game/extra/apple-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="https://games.penjee.com/binary-numbers-game/extra/apple-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="https://games.penjee.com/binary-numbers-game/extra/apple-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="https://games.penjee.com/binary-numbers-game/extra/apple-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="https://games.penjee.com/binary-numbers-game/extra/apple-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="https://games.penjee.com/binary-numbers-game/extra/apple-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="https://games.penjee.com/binary-numbers-game/extra/apple-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="https://games.penjee.com/binary-numbers-game/extra/apple-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="https://games.penjee.com/binary-numbers-game/extra/apple-icon-180x180.png">
+	<link rel="icon" type="image/png" sizes="192x192" href="https://games.penjee.com/binary-numbers-game/extra/android-icon-192x192.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="https://games.penjee.com/binary-numbers-game/extra/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="https://games.penjee.com/binary-numbers-game/extra/favicon-96x96.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="https://games.penjee.com/binary-numbers-game/extra/favicon-16x16.png">
+	<link rel="manifest" href="https://games.penjee.com/binary-numbers-game/extra/manifest.json">
+	<meta name="msapplication-TileColor" content="#ffffff">
+	<meta name="msapplication-TileImage" content="extra/ms-icon-144x144.png">
+	<meta name="theme-color" content="#ffffff">
+	
+	<script src="Binary%20Game_fichiers/fastclick.js"></script>
+	<script src="Binary%20Game_fichiers/CSSPlugin.js"></script>
+	<script src="Binary%20Game_fichiers/EasePack.js"></script>
+	<script src="Binary%20Game_fichiers/TweenLite.js"></script>
+<script src="Binary%20Game_fichiers/prompt.js"></script></head>
+<body><div style="position: fixed; inset: 0px; z-index: 10000; visibility: hidden;"><div style="pointer-events: none;display: flex;align-items: center;justify-content: center;flex-direction: row;position: fixed;top: 20%;left: 50%;transform: translateX(-50%);background: #f7f7f7;color: #114990;font-size: 22px;font-weight: 200;z-index: 10001;font-family: system, -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;box-shadow: 0 7px 10px 0 rgba(0,0,0,0.1);border: 1px black solid; border-radius: 50px;padding: 10px;"><img src="Binary%20Game_fichiers/icon_light128.png" style="width: 28px;margin: 0 10px;"><span style="border-left: 1px solid #c6c6c6;padding: 3px 10px;">Select an element</span></div></div>
+
+
+
+	<div id="gameWindowContainer" style="opacity: 1;">
+		<div id="startMenu" class="mainMenuLayer" style="opacity: 1;">
+			<div id="gameLogo">
+				<div id="penjeeLogo"><img src="Binary%20Game_fichiers/logo.png" alt=""></div>
+				<div class="logoLetter" style="transform: matrix(1, 0, 0, 1, 0, 0);">B</div>
+				<div class="logoLetter" style="transform: translate3d(0px, -1.86491px, 0px);">I</div>
+				<div class="logoLetter" style="transform: translate3d(0px, -9.09116px, 0px);">N</div>
+				<div class="logoLetter" style="transform: translate3d(0px, -1.33616px, 0px);">A</div>
+				<div class="logoLetter" style="transform: translate3d(0px, -28.6062px, 0px);">R</div>
+				<div class="logoLetter" style="transform: translate3d(0px, -37.3512px, 0px);">Y</div>
+				<div class="logoLetter" style="transform: translate3d(0px, -23.4087px, 0px);">&nbsp;</div>
+				<div class="logoLetter" style="transform: translate3d(0px, -23.4537px, 0px);">B</div>
+				<div class="logoLetter" style="transform: translate3d(0px, -87.8862px, 0px);">L</div>
+				<div class="logoLetter" style="transform: translate3d(0px, -129.631px, 0px);">I</div>
+				<div class="logoLetter" style="transform: translate3d(0px, -148.689px, 0px);">T</div>
+				<div class="logoLetter" style="transform: matrix(1, 0, 0, 1, 0, -150);">Z</div>
+			</div>
+			<button id="startGameButton" class="defbtn">
+				Start Game
+			</button>
+			<br>
+			<button id="instructionsButton" class="defbtn">
+				Instructions
+			</button>
+
+			<div id="description">
+				<p>
+					About This: We have created our own adaptation of the original 
+Cisco Binary Numbers Game so that anyone can learn binary numbers for 
+free !
+				</p>
+				<br>
+				<div>Our other binary game: <a href="http://games.penjee.com/binary-bonanza/">Binary Bonanza</a></div>
+			</div>
+		</div>
+		<div id="uiPanelL" class="gameLayer" style="opacity: 1; display: none;">
+			<button class="uipch" id="pauseMenuButton">
+				Pause
+			</button>
+			<button id="lolMenuButton">
+				Lol
+			</button>
+		</div>
+		
+		<div id="binField" class="gameLayer" style="height: 512px; opacity: 1; display: none;">
+			<div id="binMarkLine" style="font-size: 18.2857px; transform: matrix(1, 0, 0, 1, 0, 0);">
+				<table>
+					<tbody><tr>
+						<td>128</td>
+						<td>64</td>
+						<td>32</td>
+						<td>16</td>
+						<td>8</td>
+						<td>4</td>
+						<td>2</td>
+						<td>1</td>
+					</tr>
+				</tbody></table>
+			</div>
+			<div id="binBits" style="font-size: 36.5714px; transform: matrix(1, 0, 0, 1, 0, 0);">
+
+			<div id="row_0" class="row"><div class="bit zero" id="bitdiv_0_7"><div class="ulamut"></div><div class="digit">0</div></div><div class="bit zero" id="bitdiv_0_6"><div class="ulamut"></div><div class="digit">0</div></div><div class="bit zero" id="bitdiv_0_5"><div class="ulamut"></div><div class="digit">0</div></div><div class="bit zero" id="bitdiv_0_4"><div class="ulamut"></div><div class="digit">0</div></div><div class="bit zero" id="bitdiv_0_3"><div class="ulamut"></div><div class="digit">0</div></div><div class="bit zero" id="bitdiv_0_2"><div class="ulamut"></div><div class="digit">0</div></div><div class="bit zero" id="bitdiv_0_1"><div class="ulamut"></div><div class="digit">0</div></div><div class="bit zero" id="bitdiv_0_0"><div class="ulamut"></div><div class="digit">0</div></div><div class="decimal">17</div></div><div id="row_1" class="row"><div class="bit zeronum" id="bitdiv_1_7"><div class="ulamut"></div><div class="digit">0</div></div><div class="bit zeronum" id="bitdiv_1_6"><div class="ulamut"></div><div class="digit">0</div></div><div class="bit einnum" id="bitdiv_1_5"><div class="ulamut"></div><div class="digit">1</div></div><div class="bit zeronum" id="bitdiv_1_4"><div class="ulamut"></div><div class="digit">0</div></div><div class="bit zeronum" id="bitdiv_1_3"><div class="ulamut"></div><div class="digit">0</div></div><div class="bit zeronum" id="bitdiv_1_2"><div class="ulamut"></div><div class="digit">0</div></div><div class="bit zeronum" id="bitdiv_1_1"><div class="ulamut"></div><div class="digit">0</div></div><div class="bit zeronum" id="bitdiv_1_0"><div class="ulamut"></div><div class="digit">0</div></div><div class="decimalnum">???</div></div><div id="row_2" class="row"><div class="bit zeronum" id="bitdiv_2_7"><div class="ulamut"></div><div class="digit">0</div></div><div class="bit zeronum" id="bitdiv_2_6"><div class="ulamut"></div><div class="digit">0</div></div><div class="bit zeronum" id="bitdiv_2_5"><div class="ulamut"></div><div class="digit">0</div></div><div class="bit zeronum" id="bitdiv_2_4"><div class="ulamut"></div><div class="digit">0</div></div><div class="bit zeronum" id="bitdiv_2_3"><div class="ulamut"></div><div class="digit">0</div></div><div class="bit zeronum" id="bitdiv_2_2"><div class="ulamut"></div><div class="digit">0</div></div><div class="bit einnum" id="bitdiv_2_1"><div class="ulamut"></div><div class="digit">1</div></div><div class="bit einnum" id="bitdiv_2_0"><div class="ulamut"></div><div class="digit">1</div></div><div class="decimalnum">???</div></div><div id="row_3" class="row"><div class="bit zero" id="bitdiv_3_7"><div class="ulamut"></div><div class="digit">0</div></div><div class="bit zero" id="bitdiv_3_6"><div class="ulamut"></div><div class="digit">0</div></div><div class="bit zero" id="bitdiv_3_5"><div class="ulamut"></div><div class="digit">0</div></div><div class="bit zero" id="bitdiv_3_4"><div class="ulamut"></div><div class="digit">0</div></div><div class="bit zero" id="bitdiv_3_3"><div class="ulamut"></div><div class="digit">0</div></div><div class="bit zero" id="bitdiv_3_2"><div class="ulamut"></div><div class="digit">0</div></div><div class="bit zero" id="bitdiv_3_1"><div class="ulamut"></div><div class="digit">0</div></div><div class="bit zero" id="bitdiv_3_0"><div class="ulamut"></div><div class="digit">0</div></div><div class="decimal">19</div></div><div id="row_4" class="row"><div class="bit zero" id="bitdiv_4_7"><div class="ulamut"></div><div class="digit">0</div></div><div class="bit zero" id="bitdiv_4_6"><div class="ulamut"></div><div class="digit">0</div></div><div class="bit zero" id="bitdiv_4_5"><div class="ulamut"></div><div class="digit">0</div></div><div class="bit zero" id="bitdiv_4_4"><div class="ulamut"></div><div class="digit">0</div></div><div class="bit zero" id="bitdiv_4_3"><div class="ulamut"></div><div class="digit">0</div></div><div class="bit zero" id="bitdiv_4_2"><div class="ulamut"></div><div class="digit">0</div></div><div class="bit zero" id="bitdiv_4_1"><div class="ulamut"></div><div class="digit">0</div></div><div class="bit zero" id="bitdiv_4_0"><div class="ulamut"></div><div class="digit">0</div></div><div class="decimal">24</div></div><div id="row_5" class="row"><div class="bit zeronum" id="bitdiv_5_7"><div class="ulamut"></div><div class="digit">0</div></div><div class="bit zeronum" id="bitdiv_5_6"><div class="ulamut"></div><div class="digit">0</div></div><div class="bit zeronum" id="bitdiv_5_5"><div class="ulamut"></div><div class="digit">0</div></div><div class="bit einnum" id="bitdiv_5_4"><div class="ulamut"></div><div class="digit">1</div></div><div class="bit zeronum" id="bitdiv_5_3"><div class="ulamut"></div><div class="digit">0</div></div><div class="bit einnum" id="bitdiv_5_2"><div class="ulamut"></div><div class="digit">1</div></div><div class="bit zeronum" id="bitdiv_5_1"><div class="ulamut"></div><div class="digit">0</div></div><div class="bit zeronum" id="bitdiv_5_0"><div class="ulamut"></div><div class="digit">0</div></div><div class="decimalnum">???</div></div><div id="row_6" class="row"><div class="bit zero" id="bitdiv_6_7"><div class="ulamut"></div><div class="digit">0</div></div><div class="bit zero" id="bitdiv_6_6"><div class="ulamut"></div><div class="digit">0</div></div><div class="bit zero" id="bitdiv_6_5"><div class="ulamut"></div><div class="digit">0</div></div><div class="bit zero" id="bitdiv_6_4"><div class="ulamut"></div><div class="digit">0</div></div><div class="bit zero" id="bitdiv_6_3"><div class="ulamut"></div><div class="digit">0</div></div><div class="bit zero" id="bitdiv_6_2"><div class="ulamut"></div><div class="digit">0</div></div><div class="bit zero" id="bitdiv_6_1"><div class="ulamut"></div><div class="digit">0</div></div><div class="bit zero" id="bitdiv_6_0"><div class="ulamut"></div><div class="digit">0</div></div><div class="decimal">33</div></div><div id="row_7" class="row"><div class="bit zero" id="bitdiv_7_7"><div class="ulamut"></div><div class="digit">0</div></div><div class="bit zero" id="bitdiv_7_6"><div class="ulamut"></div><div class="digit">0</div></div><div class="bit zero" id="bitdiv_7_5"><div class="ulamut"></div><div class="digit">0</div></div><div class="bit zero" id="bitdiv_7_4"><div class="ulamut"></div><div class="digit">0</div></div><div class="bit zero" id="bitdiv_7_3"><div class="ulamut"></div><div class="digit">0</div></div><div class="bit zero" id="bitdiv_7_2"><div class="ulamut"></div><div class="digit">0</div></div><div class="bit zero" id="bitdiv_7_1"><div class="ulamut"></div><div class="digit">0</div></div><div class="bit zero" id="bitdiv_7_0"><div class="ulamut"></div><div class="digit">0</div></div><div class="decimal">29</div></div><div id="row_8" class="row"><div class="bit zeronum" id="bitdiv_8_7"><div class="ulamut"></div><div class="digit">0</div></div><div class="bit zeronum" id="bitdiv_8_6"><div class="ulamut"></div><div class="digit">0</div></div><div class="bit zeronum" id="bitdiv_8_5"><div class="ulamut"></div><div class="digit">0</div></div><div class="bit zeronum" id="bitdiv_8_4"><div class="ulamut"></div><div class="digit">0</div></div><div class="bit zeronum" id="bitdiv_8_3"><div class="ulamut"></div><div class="digit">0</div></div><div class="bit zeronum" id="bitdiv_8_2"><div class="ulamut"></div><div class="digit">0</div></div><div class="bit einnum" id="bitdiv_8_1"><div class="ulamut"></div><div class="digit">1</div></div><div class="bit zeronum" id="bitdiv_8_0"><div class="ulamut"></div><div class="digit">0</div></div><div class="decimalnum">???</div></div></div>
+			<!--<img src="img/binshadow.png" id="binShadow" alt="" />-->
+			<div id="numKeyboard" class="NumkeyboardLayer" style="display: none;">
+				<div id="numeKeyboardDisplay" class="NumkeyboardLayer" style="display: none;">
+							000
+				</div>
+				<table>
+					<tbody><tr>
+						<td id="numericKey1">1</td>
+						<td id="numericKey2">2</td>
+						<td id="numericKey3">3</td>
+					</tr>
+					<tr>
+						<td id="numericKey4">4</td>
+						<td id="numericKey5">5</td>
+						<td id="numericKey6">6</td>
+					</tr>
+					<tr>
+						<td id="numericKey7">7</td>
+						<td id="numericKey8">8</td>
+						<td id="numericKey9">9</td>
+					</tr>
+					<tr>
+						<td id="numericKeyX"><img class="numButton" src="Binary%20Game_fichiers/delbtn.svg" alt=""></td>
+						<td id="numericKey0">0</td>
+						
+						<td id="numericKeyV">
+							
+							<img class="numButton" src="Binary%20Game_fichiers/okbtn.svg" alt="">
+				</td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+
+		<div id="uiPanelR" class="gameLayer" style="opacity: 1; display: none;">
+			<div id="levelNumberCont">
+				level: <span id="levelNumber">1</span>
+			</div>
+			<div id="scoreNumberCont">
+				score: <span id="scoreNumber">0</span>
+			</div>
+			<div id="linesNumber">
+				linesLeft: 4
+			</div>
+		</div>
+		
+		<div id="shareButtons" class="pauseLayer" style="opacity: 1; display: none;">
+
+				<div class="sharelink facebook" data-href="http://games.penjee.com/binary-numbers-game/" data-width="50" data-layout="button" data-action="like" data-show-faces="false" data-share="true"></div>
+
+				<div class="sharelink facebook"> <a href="https://www.facebook.com/sharer/sharer.php?u=$mylink">Facebook</a></div>
+				<div class="sharelink twitter"> <a href="https://twitter.com/home?status=">Twitter</a></div>
+				<div class="sharelink gplus"> <a href="https://plus.google.com/share?url=$mylink">Google+</a></div>
+				
+		</div> 
+		
+		<div id="pauseMenu" class="pauseLayer" style="opacity: 1; display: none;">
+			
+			<span>Game paused</span>
+			<br>
+			<button id="resumeGameButton" class="defbtn">
+				Resume Game
+			</button>
+			<br>
+			<button id="endGameButton" class="defbtn">
+				End Game
+			</button>
+			
+		</div>
+		
+		<div id="gameOver" class="gameOverLayer" style="opacity: 1; display: none;">
+			<span>Game Over</span>
+		</div>
+
+		<div id="instructions" class="InstructionLayer" style="display: none;">
+			<img id="videoInstructions" src="Binary%20Game_fichiers/instructions.gif"> <br>
+			<button id="gotItButton" class="defbtn">
+				Got it
+			</button>
+		</div>
+		
+		<div id="bottomLinks" class="mainMenuLayer pauseLayer gameOverLayer" style="opacity: 1;">
+			<span class="bottomLink"><a href="https://penjee.com/privacy">Privacy Policy</a></span> |
+			<span class="bottomLink"><a href="https://facebook.com/penjeecode">Facebook</a></span> |
+			<span class="bottomLink"><a href="https://twitter.com/penjeecode">Twitter</a></span>	
+			<span class="bottomLink">	<a href="http://games.penjee.com/binary-bonanza/">Binary Bonanza</a> </span>
+			<span class="bottomLink"><a href="http://calc.penjee.com/">Binary Calculator</a></span>
+			<span class="bottomLink"><a href="https://blog.penjee.com/why-do-computers-use-binary-numbers-answered/">Why Computers Use Binary?</a></span>
+		</div>
+	</div>
+
+	<script src="Binary%20Game_fichiers/binary.js"></script>
+
+
+</body></html>
